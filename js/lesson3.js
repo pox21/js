@@ -1,19 +1,19 @@
 'use strict';
 
-let money = prompt('Ваш месячный доход ?'),
+const money = +prompt('Ваш месячный доход ?'),
     income = 1000,
-    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
     deposit = confirm('Есть ли у вас депозит в банке?'),
-    mission = 400000,
+    mission = 400000;
+let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
     period = 7;
 
-let expenses1 = prompt('Введите обязательную статью расходов?'),
+const expenses1 = prompt('Введите обязательную статью расходов?'),
     expenses2 = prompt('Введите обязательную статью расходов?'),
-    amount1 = prompt('Во сколько это обойдется?'),
-    amount2 = prompt('Во сколько это обойдется?');
+    amount1 = +prompt('Во сколько это обойдется?'),
+    amount2 = +prompt('Во сколько это обойдется?');
 
 console.log(typeof expenses1);
-console.log(typeof amount1);
+console.log(typeof expenses2);
 console.log(typeof deposit);
 
 console.log(addExpenses.length);
@@ -26,11 +26,11 @@ console.log('Цель заработать ' + mission + ' ₽/$/€.');
 
 console.log(addExpenses);
 
-let budgetMonth = parseFloat(money) - parseFloat(amount1) - parseFloat(amount2);
+const budgetMonth = money - (amount1 + amount2);
 
     period = Math.ceil(mission / budgetMonth);
 
-let budgetDay = Math.floor(budgetMonth / 30);
+const budgetDay = Math.floor(budgetMonth / 30);
 
 console.log('бюджет на месяц составляет: ' + budgetMonth + ' ₽/$/€.');
 
@@ -42,16 +42,20 @@ if (budgetDay >= 1200) {
 
         console.log('У вас высокий уровень дохода');
 
-    } else if (budgetDay >= 601 && budgetDay < 1199 ) {
+    } else if (budgetDay > 600 && budgetDay < 1200 ) {
 
         console.log('У вас средний уровень дохода');
 
-    } else if (budgetDay <= 600) {
+    } else if (budgetDay > 0 && budgetDay <= 600) {
 
         console.log('К сожалению у вас уровень дохода ниже среднего');
+
+    } else if (budgetDay <= 0) {
+
+        console.log('Вам нужно учить JavaScript, чтоб больше зарабатывать, а то вы слишком бедны!');
 
     } else {
 
         console.log('Что то пошло не так');
-        
+
     }
