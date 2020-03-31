@@ -16,25 +16,19 @@ console.log(typeof expenses1);
 console.log(typeof expenses2);
 console.log(typeof deposit);
 
-console.log(addExpenses.length);
-
 addExpenses = addExpenses.toLowerCase().split(',');
 
-console.log('Период равен ' + period + ' месяцев.');
+const   getExpensesMonth = amount1 + amount2,
+        getAccumulatedMonth = money - (amount1 + amount2),
+        accumulatedMonth = getAccumulatedMonth,
+        budgetDay = Math.floor(getAccumulatedMonth / 30),
+        getTargetMonth = Math.ceil(mission / accumulatedMonth);
 
-console.log('Цель заработать ' + mission + ' ₽/$/€.');
+console.log(getExpensesMonth);
 
 console.log(addExpenses);
 
-const budgetMonth = money - (amount1 + amount2);
-
-    period = Math.ceil(mission / budgetMonth);
-
-const budgetDay = Math.floor(budgetMonth / 30);
-
-console.log('бюджет на месяц составляет: ' + budgetMonth + ' ₽/$/€.');
-
-console.log('Цель будет достигнута за: ' + period + ' месяцев.')
+console.log('Бюджет на месяц составляет: ' + getAccumulatedMonth + ' ₽/$/€. Цель заработать ' + mission + ' ₽/$/€. Цель будет достигнута за: ' + getTargetMonth + ' месяцев.');
 
 console.log('Бюджет на день ' + budgetDay + ' ₽/$/€!');
 
@@ -59,3 +53,4 @@ if (budgetDay >= 1200) {
         console.log('Что то пошло не так');
 
     }
+
