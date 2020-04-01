@@ -4,7 +4,6 @@ let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-
 const   income = 'Фриланс',
         deposit = confirm('Есть ли у вас депозит в банке?'),
         mission = 400000;
